@@ -1,0 +1,81 @@
+{
+  "name": "mitz-catalyst-meta",
+  "version": "0.0.0-development",
+  "description": "A client to query and perform changes on Mitz Dreamverse",
+  "main": "dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "catalysts-list": "npx ts-node -T scripts/generate-catalysts-list.ts",
+    "build": "tsc --project tsconfig-build.json",
+    "prewatch": "rm -rf dist",
+    "watch": "tsc --watch --project tsconfig-build.json",
+    "test": "jest --forceExit --detectOpenHandles --coverage --verbose",
+    "commit-msg": "validate-commit-msg",
+    "lint:fix": "eslint '**/*.{js,ts,tsx}' --quiet --fix",
+    "lint:check": "eslint '**/*.{js,ts,tsx}' --quiet"
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "src"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "reporter": [
+      "text-summary"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daffacode/mitz-catalyst-meta.git"
+  },
+  "keywords": [
+    "mitz-dreamverse"
+  ],
+  "author": "Mitz-Dreamverse",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/daffacode/mitz-catalyst-meta/issues"
+  },
+  "homepage": "https://github.com/daffacode/mitz-catalyst-meta#readme",
+  "dependencies": {
+    "@types/form-data": "^2.5.0",
+    "cookie": "^0.4.1",
+    "mitz-catalyst": "git://github.com/daffacode/mitz-catalyst#dev",
+    "mitz-auth": "git://github.com/daffacode/mitz-auth#main",
+    "form-data": "^4.0.0",
+    "log4js": "^6.3.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "@types/log4js": "^2.3.5",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "@well-known-components/env-config-provider": "^1.1.1",
+    "@well-known-components/http-server": "^1.1.1",
+    "@well-known-components/interfaces": "^1.1.0",
+    "@well-known-components/logger": "^1.1.0",
+    "@well-known-components/test-helpers": "^1.2.1",
+    "busboy": "^0.3.1",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.3.1",
+    "prettier": "^2.2.1",
+    "ts-jest": "^27.0.7",
+    "ts-mockito": "^2.6.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4",
+    "validate-commit-msg": "^2.14.0"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 120,
+    "trailingComma": "none"
+  }
+}
